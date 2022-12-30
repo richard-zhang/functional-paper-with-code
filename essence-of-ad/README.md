@@ -138,10 +138,10 @@ $$
 \begin{aligned}
 \triangle &:: a `k` c \rightarrow a `k` d \rightarrow a `k` (c \times d)\\
 \triangledown &:: c `k` a \rightarrow d `k` a \rightarrow (c \times d) `k` a\\
-\text{join} &:: \\
-\text{unjoin} &:: \\
-\text{fork} &:: \\
-\text{unfork} &:: \\
+\text{join} &:: (c 'k' a \times d `k` a) -> (c \times d `k` a)\\
+\text{unjoin} &:: (c \times d `k` a) -> (c `k` a\times d `k` a)\\
+\text{fork} &:: (a `k` c \times a `k` d) -> (a `k` c \times d)\\
+\text{unfork} &:: (a `k` c \times d) -> (a `k` c \times a `k` d)\\
 \end{aligned}
 $$
 

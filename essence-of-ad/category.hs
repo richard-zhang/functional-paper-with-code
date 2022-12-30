@@ -10,3 +10,10 @@ instance Category (->) where
 
 class Category k => Monoidal k where
     cross :: (a `k` b) -> (c `k` d) -> ((a, c) `k` (b, d))
+
+-- Cartesian
+-- Cocartesian
+-- Scalable
+-- Num
+
+newtype D k a b = MkD (a -> (b, a `k` b))

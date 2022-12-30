@@ -66,6 +66,21 @@ F \space (g . f) &= F \space g . F \space f
 \end{aligned}
 $$
 
+* Additive
+  * required for Co-cartesian categories
+  * required for jam operation
+```Haskell
+class Additive a where
+  zero :: a
+  (+) ::
+```
+
+* [biproduct category](https://ncatlab.org/nlab/show/biproduct)
+
+* vector space A over a scalar field s
+  * vector space
+  * field
+
 ## Introduction
 
 * Contribution
@@ -118,3 +133,48 @@ $$
     * inl
     * inr
     * jam
+  * derived high-level operator
+$$
+\begin{aligned}
+\triangle &:: a `k` c \rightarrow a `k` d \rightarrow a `k` (c \times d)\\
+\triangledown &:: c `k` a \rightarrow d `k` a \rightarrow (c \times d) `k` a\\
+\text{join} &:: \\
+\text{unjoin} &:: \\
+\text{fork} &:: \\
+\text{unfork} &:: \\
+\end{aligned}
+$$
+
+## Generalizing Automatic Differentiation
+* insight
+  * the sequential and parallel composition of D rely respectively on sequential and parallel composition of linear map
+  * factor out the **linear map**
+
+## Representation of Linear Map
+* We can have different representation of linear map $\multimap$
+  * $\rightarrow$
+  * matrices
+
+## Reverse Mode AD (RAD)
+* efficient implementation requires
+  * separate the association used in formulating a differentiable function
+  * from the associations used to compose its derivatives
+* fully left association of composition
+* Cont category
+```Haskell
+newtype Cont r k a b = Cont ((b `k` r) -> (a `k` r))
+```
+## Related Work
+
+* insight
+  * reverse mode: primal data-flow graph is transformed to an **adjoint** graph
+    * adjoint means reverse
+    * addition node become fanout node
+  * the main implementation challenges:
+    * multiple use of variables in the primal data-flow graph (fanout)
+    * must be converted into **addition** in the reverse mode
+  * three category D, Cont, Dual
+    * precise specification of instances via functoriality
+    * the calculation of implementation from these specifications
+
+## Conclusion

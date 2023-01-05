@@ -51,3 +51,21 @@ twoFib n = (fib n, fib (n + 1))
 * Unfold: rewrite by replacing **lhs** of a recursive equation with **rhs**
 * Fold:   rewrite by replacing **rhs** of a recursive equation with **lhs**
 
+## Calculating Program: Lecture 4, Defunctionalization
+
+## Supplmentary: Defunctionalization at Work
+
+* defunctionalization:
+  * higher order programs: function as the first-class expressible values
+  * first order programs: all functions are named and second-class denotable values
+  * defunc: convert higher-order program to first-order programs
+
+### Defunctionalization in practice
+* A sample higher-order program with a static number of closures
+  * define a data type that capture the input argument of the function
+  * define an apply function that interpret the data type
+* in compiler optimization
+  * Defunctionalization is
+    * a whole-program transformation
+    * function types are replaced by an enumeration of the function abstraction in this program
+  

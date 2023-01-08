@@ -2,14 +2,30 @@
 
 ## Background Knowledge
 
-* $f$ is linear map
-$$
-\begin{aligned}
-f(au) &= af(u) \\
-f(u+v) &= f(u) + f(v)\\
-\end{aligned}
-$$
-* we also called it a linear transformation
+* vector space over a field F
+  * definition
+    * addition
+    * scalar multiplication
+  * property
+    * additive inverse
+    * multiplicative identity
+    * additive identity
+    * commutative over plus and multiple
+    * associative over plus and multiple
+    * distributive
+      * $\forall a. a \in F, u \in V, w \in V, a(u + w) = au + aw$
+
+* dual of vector space V over F: dual space
+  * all linear map $V \multimap F$
+  * this also form a vector space
+  * given a finite dimension vector space
+    * isomorphic to its dual
+
+* linear map, a function from vector space V to vector space W
+  * additivity $f(u+v) = f(u) + f(v)$
+  * homogenity $f(au) = af(u)$
+  * also called it a linear transformation
+  * linear algebra is the study of linear maps on finite-dimensional vector spaces
 
 * [Derivative as a linear map](https://math.stackexchange.com/questions/621949/understanding-the-derivative-as-a-linear-transformation)
   * i.e. Derivative is a **local** approximation of functions by **linear function**
@@ -164,6 +180,20 @@ $$
 ```Haskell
 newtype Cont r k a b = Cont ((b `k` r) -> (a `k` r))
 ```
+* cps transformation
+  * from: composition in the computation (right associative)
+    * $z \circ (k \circ (f \circ g))$
+  * to: composition in the continuation (left associative)
+    * $((z \circ k) \circ f) \circ g$
+    * the initial continuation is id
+
+## Dual
+* cont $(b \multimap s) \rightarrow (a \multimap s)$
+* func $b \rightarrow a$
+  * are isomorphic
+  * left f bs = bs . f
+  * right cont b = cont b (let s become a)
+
 ## Related Work
 
 * insight
